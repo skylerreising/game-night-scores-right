@@ -1,0 +1,26 @@
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore Visual Studio specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore NuGet packages folder (if present)
+packages/
+
+# Ignore appsettings files containing secrets
+appsettings.json
+appsettings.Development.json
+
+# Ignore the initial SQL scripts folder
+initial-sql-scripts/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
