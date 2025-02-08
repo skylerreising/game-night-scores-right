@@ -32,7 +32,7 @@ namespace GameNightScoresRight.Tests.AccessorsTests
             var newAccountDto = new CD.CreateAccountRequest
             {
                 EmailAddress = "test@example.com",
-                Role = 1 // Assume 1 represents a User role, for example.
+                Role = 1
             };
 
             await _accountAccessor.CreateAccount(newAccountDto);
