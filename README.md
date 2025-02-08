@@ -1,4 +1,4 @@
-# Game Night Scores Right 🎮🏆
+# Game Night Scores Right 🎲🏆
 
 Welcome to **Game Night Scores Right** – your ultimate tool for keeping score, tracking players, teams, and events during those epic game nights! Whether you're a board game fanatic, a trivia master, or a competitive team sport enthusiast, this API has got your back (and your leaderboard)!
 
