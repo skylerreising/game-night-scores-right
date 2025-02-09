@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GameNightScoresRight.Enums;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace GameNightScoresRight.EFDTOs
@@ -28,7 +29,7 @@ namespace GameNightScoresRight.EFDTOs
         [MaxLength(512)]
         public string? LogoUrl { get; set; }
 
-        public int? TeamType { get; set; }
+        public TeamType? TeamType { get; set; }
 
         public int? MaxParticipants { get; set; }
 
