@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GameNightScoresRight.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameNightScoresRight.CommonDTOs
 {
@@ -7,7 +8,6 @@ namespace GameNightScoresRight.CommonDTOs
         [Required]
         public required string EmailAddress { get; set; }
 
-        [Required]
-        public int? Role { get; set; }
+        public Role? Role { get; set; }
     }
 }

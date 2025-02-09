@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GameNightScoresRight.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameNightScoresRight.EFDTOs
 {
@@ -13,7 +14,7 @@ namespace GameNightScoresRight.EFDTOs
         public required string EmailAddress { get; set; }
 
         [Required]
-        public int Role { get; set; }
+        public Role Role { get; set; }
 
         [Required]
         public DateTimeOffset CreatedAt { get; set; }
@@ -24,7 +25,6 @@ namespace GameNightScoresRight.EFDTOs
         [Required]
         public bool IsDeleted { get; set; }
 
-        // Navigation property
         public User? User { get; set; }
     }
 }

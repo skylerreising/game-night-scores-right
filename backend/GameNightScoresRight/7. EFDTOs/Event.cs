@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GameNightScoresRight.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameNightScoresRight.EFDTOs
 {
@@ -25,9 +26,9 @@ namespace GameNightScoresRight.EFDTOs
 
         public string? Notes { get; set; }
 
-        public int? EventType { get; set; }
+        public EventType? EventType { get; set; }
 
-        public int? Status { get; set; }
+        public EventStatus? Status { get; set; }
 
         public int? MaxParticipants { get; set; }
 

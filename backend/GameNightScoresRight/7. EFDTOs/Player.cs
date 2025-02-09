@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GameNightScoresRight.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameNightScoresRight.EFDTOs
 {
@@ -21,7 +22,7 @@ namespace GameNightScoresRight.EFDTOs
         [Required]
         public Guid EventId { get; set; }
 
-        public int? Position { get; set; }
+        public Position? Position { get; set; }
 
         [Required]
         public DateTimeOffset CreatedAt { get; set; }
