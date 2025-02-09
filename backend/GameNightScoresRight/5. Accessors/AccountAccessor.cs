@@ -21,7 +21,7 @@ namespace GameNightScoresRight.Accessors
             var newAccount = new EF.Account
             {
                 EmailAddress = createAccountRequest.EmailAddress,
-                Role = createAccountRequest.Role ?? 1,
+                Role = createAccountRequest.Role ?? Enums.Role.User,
                 CreatedAt = DateTimeOffset.UtcNow,
                 UpdatedAt = DateTimeOffset.UtcNow,
             };

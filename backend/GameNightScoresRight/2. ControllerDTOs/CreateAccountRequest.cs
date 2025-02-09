@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GameNightScoresRight.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameNightScoresRight.ControllerDTOs
 {
@@ -6,6 +7,6 @@ namespace GameNightScoresRight.ControllerDTOs
     {
         [Required]
         public required string EmailAddress { get; set; }
-        public int? Role { get; set; }
+        public Role? Role { get; set; }
     }
 }
