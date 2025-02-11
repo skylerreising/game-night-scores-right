@@ -10,6 +10,7 @@ Welcome to **Game Night Scores Right** – your ultimate tool for keeping score,
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Setup & Installation](#setup--installation)
+- [Running Database Migrations with DbUp](#running-database-migrations-with-dbup)
 - [Running the Tests](#running-the-tests)
 - [License](#license)
 
@@ -93,15 +94,47 @@ Thank you for checking out the project in its early form. Stay tuned for updates
 
 ---
 
+## Running Database Migrations with DbUp
+
+To update the database schema using DbUp:
+
+1. Create a Local Configuration File for DbUp:
+
+   In the DbUpRunner directory (located at backend/GameNightScoresRight/6. Data/DbUpRunner), create an appsettings.json file with your connection strings:
+
+   ```json
+   {
+     "ConnectionStrings": {
+       "GameNightDB": "<YOUR_CONNECTION_STRING>",
+       "GameNightTestDB": "<YOUR_TEST_CONNECTION_STRING>"
+     }
+   }
+   ```
+
+2. Place Your SQL Scripts:
+
+   Ensure your SQL scripts (e.g., 001-initial-tables.sql) are located in a folder (for example, SQL Scripts) inside the 6. Data directory.
+
+3. Run the DbUpRunner:
+
+   Open a terminal (GitBash or Developer PowerShell), navigate to the DbUpRunner directory, and run:
+
+   ```bash
+   dotnet run
+   ```
+
+   The DbUpRunner will read the connection strings from its local appsettings.json file and apply the SQL scripts to both the production and test databases. It logs its progress and reports success or any errors encountered.
+
 ## Running the Tests
 
-    This project uses MSTest along with Fluent Assertions to ensure everything works as expected.
-    To run the tests, simply execute:
+This project uses MSTest along with Fluent Assertions to ensure everything works as expected.
+To run the tests, simply execute:
 
-    ```bash
-    dotnet test
-    ```
-    The tests are located in the 8. Tests folder and will verify that your accessors, managers, and other components perform correctly.
+```bash
+dotnet test
+```
+
+The tests are located in the 8. Tests folder and will verify that your accessors, managers, and other components perform correctly.
 
 ---
 
