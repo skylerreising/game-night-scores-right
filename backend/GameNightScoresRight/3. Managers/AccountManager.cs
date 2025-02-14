@@ -1,4 +1,5 @@
-﻿using GameNightScoresRight.Accessors;
+﻿using AutoMapper;
+using GameNightScoresRight.Accessors;
 using GameNightScoresRight.ControllerDTOs;
 using CD = GameNightScoresRight.CommonDTOs;
 
@@ -7,23 +8,21 @@ namespace GameNightScoresRight.Managers
     public class AccountManager : IAccountManager
     {
         private readonly IAccountAccessor _accountAccessor;
+        private readonly IMapper _mapper;
 
-        public AccountManager(IAccountAccessor accountAccessor)
+        public AccountManager(IAccountAccessor accountAccessor, IMapper mapper)
         {
             _accountAccessor = accountAccessor;
+            _mapper = mapper;
         }
 
         public async Task<CreateAccountResponse> CreateAccount(CreateAccountRequest request)
         {
-            var createAccountRequest = new CD.CreateAccountRequest
-            {
-                EmailAddress = request.EmailAddress,
-                Role = request.Role
-            };
+            var createAccountRequest = _mapper.Map<CD.CreateAccountRequest>(request);
 
-            var account = await _accountAccessor.CreateAccount(createAccountRequest);
+            var response = await _accountAccessor.CreateAccount(createAccountRequest);
 
-            return new CreateAccountResponse();
+            return _mapper.Map<CreateAccountResponse>(response);
         }
     }
 }
