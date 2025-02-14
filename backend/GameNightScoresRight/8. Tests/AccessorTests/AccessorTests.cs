@@ -4,6 +4,7 @@ using GameNightScoresRight.Data;
 using CD = GameNightScoresRight.CommonDTOs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
+using AutoMapper;
 
 namespace GameNightScoresRight.Tests.AccessorsTests
 {
@@ -12,6 +13,7 @@ namespace GameNightScoresRight.Tests.AccessorsTests
     {
         private GameNightDbContext _dbContext;
         private AccountAccessor _accountAccessor;
+        private IMapper _mapper;
 
         [TestInitialize]
         public void TestInit()
@@ -22,7 +24,9 @@ namespace GameNightScoresRight.Tests.AccessorsTests
                 .Options;
 
             _dbContext = new GameNightDbContext(options);
-            _accountAccessor = new AccountAccessor(_dbContext);
+            var config = new MapperConfiguration(cfg => cfg.AddProfile<MappingProfiles.CommonEFMappingProfile>());
+            _mapper = config.CreateMapper();
+            _accountAccessor = new AccountAccessor(_dbContext, _mapper);
         }
 
         [TestMethod]
