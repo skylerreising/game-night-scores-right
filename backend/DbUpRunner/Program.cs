@@ -8,7 +8,6 @@ namespace DbUpRunner
         static int Main(string[] args)
         {
             Console.WriteLine("Starting database upgrade...");
-            Console.WriteLine("Current Directory: " + Directory.GetCurrentDirectory());
 
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -25,7 +24,6 @@ namespace DbUpRunner
             };
 
             var scriptsPath = Path.Combine(AppContext.BaseDirectory, @"..\..\..\..\GameNightScoresRight\6. Data\SQL Scripts");
-            Console.WriteLine("Scripts Path: " + Path.GetFullPath(scriptsPath));
 
 
             foreach (var connectString in connectionStrings)
