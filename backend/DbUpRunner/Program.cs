@@ -23,7 +23,7 @@ namespace DbUpRunner
                 testConnectionString
             };
 
-            var scriptsPath = Path.Combine(AppContext.BaseDirectory, @"..\..\..\..\GameNightScoresRight\6. Data\SQL Scripts");
+            var scriptsPath = Path.Combine(Directory.GetCurrentDirectory(), "SQL Scripts");
 
 
             foreach (var connectString in connectionStrings)

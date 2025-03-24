@@ -5,6 +5,9 @@ using CD = GameNightScoresRight.CommonDTOs;
 using Enums = GameNightScoresRight.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
+using AutoMapper;
+using GameNightScoresRight.MappingProfiles;
+
 
 namespace GameNightTests
 {
@@ -13,6 +16,7 @@ namespace GameNightTests
     {
         private GameNightDbContext _dbContext;
         private AccountAccessor _accountAccessor;
+        private IMapper _mapper;
 
         [TestInitialize]
         public void TestInit()
@@ -23,7 +27,9 @@ namespace GameNightTests
                 .Options;
 
             _dbContext = new GameNightDbContext(options);
-            _accountAccessor = new AccountAccessor(_dbContext);
+            var config = new MapperConfiguration(cfg => cfg.AddProfile<CommonEFMappingProfile>());
+            _mapper = config.CreateMapper();
+            _accountAccessor = new AccountAccessor(_dbContext, _mapper);
         }
 
         [TestMethod]

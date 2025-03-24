@@ -19,4 +19,10 @@
 		</None>
 	</ItemGroup>
 
+	<ItemGroup>
+		<Content Include="SQL Scripts\**\*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
 </Project>
