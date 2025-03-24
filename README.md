@@ -142,4 +142,4 @@ The tests are located in the backend/GameNightTests directory and will verify th
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-#Happy Gaming!#
+Happy Gaming!
