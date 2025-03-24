@@ -100,7 +100,7 @@ To update the database schema using DbUp:
 
 1. Create a Local Configuration File for DbUp:
 
-   In the DbUpRunner directory (located at backend/GameNightScoresRight/6. Data/DbUpRunner), create an appsettings.json file with your connection strings:
+   In the DbUpRunner directory (located at backend/DbUpRunner), create an appsettings.json file with your connection strings:
 
    ```json
    {
@@ -113,7 +113,7 @@ To update the database schema using DbUp:
 
 2. Place Your SQL Scripts:
 
-   Ensure your SQL scripts (e.g., 001-initial-tables.sql) are located in a folder (for example, SQL Scripts) inside the 6. Data directory.
+   Ensure your SQL scripts (e.g., 001-initial-tables.sql) are located in a folder (for example, SQL Scripts) inside the SQL Scripts directory.
 
 3. Run the DbUpRunner:
 
@@ -134,7 +134,7 @@ To run the tests, simply execute:
 dotnet test
 ```
 
-The tests are located in the 8. Tests folder and will verify that your accessors, managers, and other components perform correctly.
+The tests are located in the backend/GameNightTests directory and will verify that your accessors, managers, and other components perform correctly.
 
 ---
 
