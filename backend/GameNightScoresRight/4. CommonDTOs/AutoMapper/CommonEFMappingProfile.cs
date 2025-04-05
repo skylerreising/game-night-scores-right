@@ -18,6 +18,10 @@ namespace GameNightScoresRight.MappingProfiles
 
             CreateMap<EF.Account, CD.CreateAccountResponse>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
+
+            CreateMap<CD.CreateUserRequest, EF.User>();
+
+            CreateMap<EF.User, CD.CreateUserResponse>();
         }
     }
 }
