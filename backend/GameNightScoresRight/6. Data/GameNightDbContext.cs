@@ -22,10 +22,13 @@ namespace GameNightScoresRight.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>()
-            .HasOne(u => u.Account)
-            .WithOne(a => a.User)
-            .HasForeignKey<User>(u => u.AccountId)
-            .IsRequired();
+                .HasKey(u => u.AccountId);
+
+            modelBuilder.Entity<Account>()
+                .HasOne(a => a.User)
+                .WithOne(u => u.Account)
+                .HasForeignKey<User>(u => u.AccountId);
+
         }
     }
 }

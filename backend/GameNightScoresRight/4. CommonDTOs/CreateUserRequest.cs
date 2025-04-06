@@ -5,12 +5,15 @@ namespace GameNightScoresRight.CommonDTOs
     public class CreateUserRequest
     {
         [Required]
+        public required Guid UserId { get; set; }
+
+        [Required]
         public string FirstName { get; set; } = string.Empty;
 
         public string? LastName { get; set; }
 
         [Required]
-        public required string UserName { get; set; }
+        public required string Username { get; set; }
 
         public string? PhoneNumber { get; set; }
 

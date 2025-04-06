@@ -14,10 +14,17 @@ namespace GameNightScoresRight.Accessors
             _db = dbContext;
             _mapper = mapper;
         }
-        public async Task<CreateUserResponse> CreateAccount(CreateUserRequest createUserRequest)
+        public async Task<CreateUserResponse> CreateUser(CreateUserRequest createUserRequest)
         {
             var newUser = _mapper.Map<EF.User>(createUserRequest);
-            newUser.CreatedAt = DateTimeOffset.UtcNow;
+
+            var accountId = _db.Accounts
+                .Where(a => a.UserId == createUserRequest.UserId)
+                .Select(a => a.Id)
+                .FirstOrDefault();
+
+            newUser.AccountId = accountId;
+
             await _db.Users.AddAsync(newUser);
             await _db.SaveChangesAsync();
             var response = _mapper.Map<CreateUserResponse>(newUser);
