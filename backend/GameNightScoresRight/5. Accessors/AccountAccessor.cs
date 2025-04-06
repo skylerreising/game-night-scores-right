@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
-using CD = GameNightScoresRight.CommonDTOs;
+﻿using CD = GameNightScoresRight.CommonDTOs;
 using EF = GameNightScoresRight.EFDTOs;
 using GameNightScoresRight.Data;
 using AutoMapper;
