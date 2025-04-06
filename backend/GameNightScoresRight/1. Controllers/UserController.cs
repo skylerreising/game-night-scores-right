@@ -19,23 +19,6 @@ namespace GameNightScoresRight.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
-            // Check if model binding resulted in errors
-            if (!ModelState.IsValid)
-            {
-                // Log each error in ModelState
-                foreach (var modelState in ModelState.Values)
-                {
-                    foreach (var error in modelState.Errors)
-                    {
-                        _logger.LogError("Model binding error: {Error}", error.ErrorMessage);
-                    }
-                }
-                return BadRequest(ModelState);
-            }
-
-            // Log the successfully deserialized request object
-            _logger.LogInformation("Received CreateUserRequest: {@Request}", request);
-
             var response = await _userManager.CreateUser(request);
             return response != null ? Ok(response) : BadRequest("Failed to create user.");
         }
