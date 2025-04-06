@@ -15,12 +15,20 @@ builder.Services.AddDbContext<GameNightDbContext>(options =>
 
 builder.Services.AddScoped<IAccountManager, AccountManager>();
 builder.Services.AddScoped<IAccountAccessor, AccountAccessor>();
+builder.Services.AddScoped<IUserManager, UserManager>();
+builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var mapper = scope.ServiceProvider.GetRequiredService<IMapper>();
+    mapper.ConfigurationProvider.AssertConfigurationIsValid();
+}
 
 if (app.Environment.IsDevelopment())
 {

@@ -1,7 +1,6 @@
 ﻿using GameNightScoresRight.ControllerDTOs;
 using GameNightScoresRight.Managers;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace GameNightScoresRight.Controllers
 {

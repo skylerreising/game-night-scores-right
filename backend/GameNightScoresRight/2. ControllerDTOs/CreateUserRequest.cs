@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GameNightScoresRight.CommonDTOs
+namespace GameNightScoresRight.ControllerDTOs
 {
     public class CreateUserRequest
     {

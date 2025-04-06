@@ -16,7 +16,8 @@ namespace GameNightScoresRight.MappingProfiles
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role ?? Role.User))
                 .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTimeOffset.UtcNow))
                 .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTimeOffset.UtcNow))
-                .ForMember(dest => dest.IsDeleted, opt => opt.Ignore());
+                .ForMember(dest => dest.IsDeleted, opt => opt.Ignore())
+                .ForMember(dest => dest.User, opt => opt.Ignore());
 
             CreateMap<EF.Account, CD.CreateAccountResponse>()
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
@@ -34,9 +35,11 @@ namespace GameNightScoresRight.MappingProfiles
                 .ForMember(dest => dest.Bio, opt => opt.MapFrom(src => src.Bio))
                 .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTimeOffset.UtcNow))
                 .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore())
-                .ForMember(dest => dest.IsDeleted, opt => opt.MapFrom(src => false));
+                .ForMember(dest => dest.IsDeleted, opt => opt.MapFrom(src => false))
+                .ForMember(dest => dest.Account, opt => opt.Ignore());
 
-            CreateMap<EF.User, CD.CreateUserResponse>();
+            CreateMap<EF.User, CD.CreateUserResponse>()
+                .ForAllMembers(opt => opt.Ignore());
         }
     }
 }
